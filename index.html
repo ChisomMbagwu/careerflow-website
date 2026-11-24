@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Flow Nigeria | Clarity for Careers. Confidence for the Future.</title>
+<meta name="description" content="Career Flow is a Nigerian nonprofit helping young people make informed education and career decisions through career guidance, mentorship, professional exposure and practical skills development.">
+<meta property="og:title" content="Career Flow Nigeria">
+<meta property="og:description" content="Clarity for careers. Confidence for the future.">
+<meta name="theme-color" content="#00451e">
+<link rel="icon" type="image/png" href="assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:#00451e;
+  --green:#0d7d4f;
+  --lime:#e6ff79;
+  --mint:#eaf3eb;
+  --ink:#0f2318;
+  --muted:#53645a;
+  --line:#d9e5db;
+  --white:#ffffff;
+  --display:"Bricolage Grotesque","Work Sans",system-ui,sans-serif;
+  --body:"Work Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-size:17px;line-height:1.6;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+h1,h2,h3{font-family:var(--display);font-weight:700;letter-spacing:-.035em;line-height:1.02;font-variation-settings:"opsz" 96}
+h2{font-size:clamp(2.3rem,5vw,4rem)}
+h3{font-size:1.5rem;letter-spacing:-.02em;line-height:1.15}
+p{max-width:62ch}
+.lead{font-size:1.2rem;color:var(--muted);line-height:1.55}
+section{padding:120px 0}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:54px;padding:0 28px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,transform .2s}
+.btn:active{transform:scale(.97)}
+.btn-dark{background:var(--forest);color:#fff}
+.btn-dark:hover{background:var(--green)}
+.btn-lime{background:var(--lime);color:var(--forest)}
+.btn-lime:hover{background:#fff}
+.btn-line{background:transparent;color:var(--forest);box-shadow:inset 0 0 0 1.5px var(--forest)}
+.btn-line:hover{background:var(--forest);color:#fff}
+.btn-line.on-dark{color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.6)}
+.btn-line.on-dark:hover{background:#fff;color:var(--forest)}
+
+/* ---------- NAV ---------- */
+header{position:fixed;top:16px;left:0;right:0;z-index:50;pointer-events:none}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.nav>*{pointer-events:auto}
+.logo-pill{background:var(--forest);border-radius:999px;height:52px;padding:0 22px;display:flex;align-items:center;box-shadow:0 6px 20px rgba(0,69,30,.18)}
+.logo-pill img{height:24px;width:auto}
+.links{display:flex;gap:4px;background:#fff;border-radius:999px;padding:6px;box-shadow:0 6px 24px rgba(15,35,24,.10);list-style:none}
+.links a{display:block;padding:9px 18px;border-radius:999px;text-decoration:none;font-weight:500;font-size:.95rem;transition:background .2s}
+.links a:hover,.links a.active{background:var(--mint)}
+.nav-cta{box-shadow:0 6px 20px rgba(0,69,30,.18)}
+.menu-btn{display:none;width:52px;height:52px;border-radius:50%;border:0;background:#fff;box-shadow:0 6px 24px rgba(15,35,24,.12);cursor:pointer}
+.menu-btn svg{width:22px;height:22px;margin:auto}
+
+/* ---------- HERO (previous design) ---------- */
+.hero{position:relative;background:var(--forest);color:#fff;overflow:hidden;padding:150px 0 120px;min-height:92vh;display:flex;align-items:center}
+.rays{position:absolute;right:-180px;top:-140px;width:760px;height:760px;opacity:.12;pointer-events:none;animation:spin 60s linear infinite}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero-eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:.8rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--lime);opacity:0;animation:fadeUp .6s ease .1s forwards}
+.spark{font-style:normal;display:inline-block;animation:twinkle 2.4s ease-in-out infinite}
+.hero-h1{font-family:var(--body);font-size:clamp(2.6rem,5.6vw,4.6rem);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:18px 0 22px}
+.hero-h1 .ln{display:block;overflow:hidden;padding-bottom:.04em}
+.hero-h1 .ln>span{display:inline-block;transform:translateY(110%);animation:lineUp .9s cubic-bezier(.22,1,.36,1) forwards}
+.hero-h1 .ln:nth-child(2)>span{animation-delay:.15s}
+.hero-h1 .future{display:block;color:var(--lime);font-style:italic;font-weight:300;font-size:1.45em;line-height:1}
+.hero-h1 .future .fw{display:inline-block;opacity:0;transform:scale(.3) rotate(-8deg);animation:popIn 1s cubic-bezier(.34,1.8,.64,1) .45s forwards}
+.hero-sub{font-size:1.15rem;color:rgba(255,255,255,.82);max-width:540px;margin-bottom:34px;opacity:0;animation:fadeUp .8s ease .75s forwards}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp .8s cubic-bezier(.34,1.56,.64,1) .95s forwards}
+.pulse{animation:pulse 2.2s ease-in-out 2s infinite}
+.hero-photo{position:relative;isolation:isolate;opacity:0;animation:photoIn 1.1s cubic-bezier(.34,1.56,.64,1) .3s forwards}
+.hero-photo .frame{position:relative;border-radius:20px;overflow:hidden;aspect-ratio:1/1;background:#026141;clip-path:polygon(0 0,82% 0,100% 16%,100% 100%,18% 100%,0 84%);animation:float 6s ease-in-out 1.4s infinite}
+.hero-photo .shadow{position:absolute;inset:22px -22px -22px 22px;background:var(--green);border-radius:20px;clip-path:polygon(0 0,82% 0,100% 16%,100% 100%,18% 100%,0 84%);z-index:-1}
+.slides{position:absolute;inset:0}
+.slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.15);transition:opacity 1.2s ease,transform 1.2s ease}
+.slides img.on{opacity:1;animation:kb 6s ease-out forwards}
+.dots{position:absolute;left:50%;bottom:-38px;transform:translateX(-50%);display:flex;gap:8px}
+.dots button{width:10px;height:10px;border-radius:999px;border:0;background:rgba(255,255,255,.35);cursor:pointer;padding:0;transition:width .4s cubic-bezier(.34,1.56,.64,1),background .3s}
+.dots button.on{width:30px;background:var(--lime)}
+.blob{position:absolute;border-radius:50%;z-index:-2;filter:blur(2px)}
+.b1{width:220px;height:220px;background:var(--lime);right:-60px;top:-50px;opacity:.9;animation:blob 9s ease-in-out infinite}
+.b2{width:120px;height:120px;background:var(--green);left:-50px;bottom:60px;animation:blob 7s ease-in-out infinite reverse}
+.ring{position:absolute;width:150px;height:150px;border:2px dashed rgba(230,255,121,.5);border-radius:50%;left:-70px;top:30px;z-index:-1;animation:spin 18s linear infinite}
+.chip{position:absolute;display:flex;gap:8px;align-items:center;background:#fff;color:var(--forest);font-weight:600;font-size:.9rem;padding:10px 16px;border-radius:999px;box-shadow:0 12px 30px rgba(0,0,0,.25);white-space:nowrap;opacity:0;cursor:default}
+.chip span{font-size:1.05rem}
+.c1{left:-46px;top:16%;background:var(--lime);animation:chipIn .8s cubic-bezier(.34,1.8,.64,1) 1.1s forwards,bob 3.2s ease-in-out 1.9s infinite}
+.c2{right:-34px;top:6%;animation:chipIn .8s cubic-bezier(.34,1.8,.64,1) 1.3s forwards,bob 3.6s ease-in-out 2.1s infinite}
+.c3{right:-40px;top:52%;background:var(--lime);animation:chipIn .8s cubic-bezier(.34,1.8,.64,1) 1.5s forwards,bob 3s ease-in-out 2.3s infinite}
+.c4{left:-30px;bottom:10%;animation:chipIn .8s cubic-bezier(.34,1.8,.64,1) 1.7s forwards,bob 3.4s ease-in-out 2.5s infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.4) rotate(90deg)}}
+@keyframes lineUp{to{transform:none}}
+@keyframes popIn{to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes photoIn{from{opacity:0;transform:translateY(60px) rotate(4deg) scale(.9)}to{opacity:1;transform:none}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes kb{from{transform:scale(1.15) translate(1.5%,1%)}to{transform:scale(1) translate(0,0)}}
+@keyframes blob{0%,100%{border-radius:50%;transform:translate(0,0) scale(1)}33%{border-radius:42% 58% 60% 40%;transform:translate(14px,-18px) scale(1.08)}66%{border-radius:58% 42% 38% 62%;transform:translate(-10px,12px) scale(.95)}}
+@keyframes chipIn{from{opacity:0;transform:scale(.2) translateY(30px)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(230,255,121,.6)}70%{box-shadow:0 0 0 18px rgba(230,255,121,0)}100%{box-shadow:0 0 0 0 rgba(230,255,121,0)}}
+
+/* ---------- GUIDANCE GAP ---------- */
+.gap-head{display:grid;grid-template-columns:1.1fr .9fr;gap:64px;align-items:end}
+.gap-head h2{font-size:clamp(2.6rem,6vw,5rem)}
+.gap-body{display:grid;grid-template-columns:1fr 1fr 1.1fr;gap:40px;margin-top:72px;align-items:start}
+.stage-note h3{margin-bottom:12px}
+.stage-note p{color:var(--muted)}
+.gap-photo{border-radius:28px;overflow:hidden;aspect-ratio:4/5;grid-row:span 2}
+.gap-photo img{width:100%;height:100%;object-fit:cover}
+.figures{grid-column:1 / 3;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-top:36px;border-top:1px solid var(--line)}
+.figures b{display:block;font-family:var(--display);font-size:2.6rem;letter-spacing:-.04em;line-height:1;color:var(--forest)}
+.figures span{display:block;margin-top:8px;font-size:.92rem;color:var(--muted);line-height:1.45}
+
+/* ---------- PROGRAMMES (signature) ---------- */
+.programs{background:var(--mint)}
+.programs-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:56px}
+.programs-head p{color:var(--muted)}
+.panels{display:flex;gap:14px;height:600px}
+.panel{position:relative;flex:1;min-width:0;border-radius:32px;overflow:hidden;cursor:pointer;transition:flex .7s cubic-bezier(.2,.8,.2,1);color:#fff;background:var(--forest)}
+.panel.p2{background:var(--green)}
+.panel.p3{background:var(--lime);color:var(--forest)}
+.panel.open{flex:3.2;cursor:default}
+.panel .vt{position:absolute;left:50%;bottom:36px;transform:translateX(-50%) rotate(180deg);writing-mode:vertical-rl;font-family:var(--display);font-weight:700;font-size:3.4rem;letter-spacing:-.04em;white-space:nowrap;transition:opacity .3s}
+.panel.open .vt{opacity:0}
+.panel .inner{position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:40px;opacity:0;visibility:hidden;transition:opacity .4s ease}
+.panel.open .inner{opacity:1;visibility:visible;transition-delay:.3s}
+.panel .who{font-size:.95rem;opacity:.8;margin-bottom:14px}
+.panel h3{font-size:clamp(2rem,3.2vw,3rem);margin-bottom:18px;letter-spacing:-.04em}
+.panel p{opacity:.9}
+.panel ul{list-style:none;margin-top:24px;display:grid;gap:10px}
+.panel li{padding-left:18px;position:relative}
+.panel li:before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.7}
+.panel .ph{border-radius:22px;overflow:hidden;align-self:stretch}
+.panel .ph img{width:100%;height:100%;object-fit:cover}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center}
+.about-photo{border-radius:32px;overflow:hidden;aspect-ratio:3/2}
+.about-photo img{width:100%;height:100%;object-fit:cover}
+.about h2{margin-bottom:24px}
+.focus{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}
+.focus span{padding:8px 16px;border-radius:999px;background:var(--mint);font-weight:500;font-size:.95rem}
+.sdg{font-size:.95rem;color:var(--muted)}
+
+/* ---------- OUTREACH FEATURE ---------- */
+.feature{position:relative;min-height:88vh;display:flex;align-items:flex-end;color:#fff;padding:0;overflow:hidden}
+.feature>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.feature.in>img{transform:scale(1)}
+.feature:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,40,18,.1) 30%,rgba(0,40,18,.85));z-index:1}
+.feature .wrap{position:relative;z-index:2;padding-bottom:88px;width:100%}
+.feature small{display:block;font-size:1rem;opacity:.85;margin-bottom:14px}
+.feature h2{max-width:16ch;margin-bottom:22px}
+.feature p{opacity:.9;margin-bottom:32px;font-size:1.15rem}
+.feature .ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+.impact{background:var(--forest);color:#fff;padding:96px 0}
+.impact-row{display:grid;grid-template-columns:1.2fr repeat(4,1fr);gap:32px;align-items:end}
+.impact-row h2{font-size:clamp(1.8rem,3vw,2.6rem);color:var(--lime)}
+.num b{display:block;font-family:var(--display);font-size:clamp(3.2rem,6vw,5.4rem);letter-spacing:-.05em;line-height:.9;font-variant-numeric:tabular-nums}
+.num span{display:block;margin-top:12px;color:rgba(255,255,255,.72);font-size:.98rem}
+
+/* ---------- GALLERY ---------- */
+.gallery-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.g-ctrl{display:flex;gap:10px}
+.g-ctrl button{width:52px;height:52px;border-radius:50%;border:0;background:var(--mint);cursor:pointer;font-size:1.2rem;transition:background .2s}
+.g-ctrl button:hover{background:var(--lime)}
+.strip{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:max(28px,calc((100vw - var(--max))/2 + 28px));padding:0 max(28px,calc((100vw - var(--max))/2 + 28px)) 8px;scrollbar-width:none}
+.strip::-webkit-scrollbar{display:none}
+.strip figure{flex:none;height:460px;border-radius:24px;overflow:hidden;scroll-snap-align:start;cursor:zoom-in;background:var(--mint)}
+.strip figure.l{aspect-ratio:3/2}
+.strip figure.p{aspect-ratio:2/3}
+.strip img{width:100%;height:100%;object-fit:cover}
+.lightbox{position:fixed;inset:0;background:rgba(0,26,11,.95);display:none;align-items:center;justify-content:center;z-index:100;padding:30px}
+.lightbox.open{display:flex}
+.lightbox img{max-height:88vh;max-width:92vw;border-radius:14px}
+.lightbox button{position:absolute;background:rgba(255,255,255,.14);border:0;color:#fff;width:52px;height:52px;border-radius:50%;font-size:1.5rem;cursor:pointer}
+.lightbox .close{top:22px;right:22px}.lightbox .prev{left:22px}.lightbox .next{right:22px}
+
+/* ---------- VOICES ---------- */
+.voices{background:var(--mint)}
+.voice-wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.voice-names{display:grid;gap:6px;margin-top:40px}
+.voice-names button{display:flex;gap:14px;align-items:center;text-align:left;padding:14px 16px;border-radius:18px;border:0;background:transparent;cursor:pointer;transition:background .25s}
+.voice-names button:hover{background:rgba(255,255,255,.6)}
+.voice-names button.on{background:#fff}
+.voice-names b{display:block;font-size:1rem}
+.voice-names small{display:block;color:var(--muted);font-size:.88rem}
+.avatar{width:46px;height:46px;border-radius:50%;background:var(--forest);color:var(--lime);display:grid;place-items:center;font-weight:600;font-size:.95rem;flex:none}
+blockquote{font-family:var(--display);font-weight:500;font-size:clamp(1.6rem,2.8vw,2.4rem);line-height:1.22;letter-spacing:-.025em;font-variation-settings:"opsz" 48;color:var(--forest);min-height:9em;transition:opacity .35s}
+blockquote.swap{opacity:0}
+
+/* ---------- TEAM ---------- */
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px 28px;margin-top:56px}
+.member{display:flex;gap:14px;align-items:center;padding-top:20px;border-top:1px solid var(--line)}
+.member b{display:block;line-height:1.3}
+.member span{display:block;font-size:.9rem;color:var(--muted);line-height:1.4;margin-top:2px}
+
+/* ---------- GET INVOLVED ---------- */
+.involved{background:var(--forest);color:#fff}
+.involved-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px}
+.involved .lead{color:rgba(255,255,255,.75);margin-top:20px}
+.ways{list-style:none;border-top:1px solid rgba(255,255,255,.18)}
+.ways a{display:grid;grid-template-columns:1fr auto;gap:6px 24px;padding:24px 4px;border-bottom:1px solid rgba(255,255,255,.18);text-decoration:none;transition:padding .3s,background .3s}
+.ways a:hover{padding-left:16px;background:rgba(255,255,255,.04)}
+.ways h3{font-size:1.45rem}
+.ways p{grid-column:1;color:rgba(255,255,255,.7);font-size:.98rem}
+.ways svg{grid-row:1 / 3;grid-column:2;align-self:center;width:22px;height:22px;stroke:var(--lime);transition:transform .3s}
+.ways a:hover svg{transform:translateX(4px)}
+.supporters{margin-top:96px;padding-top:48px;border-top:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:center}
+.supporters p{color:rgba(255,255,255,.75)}
+.supporters h3{font-size:1.8rem;margin-bottom:12px}
+.sponsor-names{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.sponsor-names div{flex:1;min-width:220px;background:rgba(255,255,255,.07);border-radius:20px;padding:22px 24px}
+.sponsor-names small{display:block;color:rgba(255,255,255,.65);font-size:.88rem}
+.sponsor-names b{display:block;font-family:var(--display);font-size:1.6rem;letter-spacing:-.03em;margin-top:4px}
+.supporters .ctas{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ---------- CONTACT ---------- */
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px}
+.contact-list{display:grid;gap:22px;margin-top:36px}
+.contact-list a{text-decoration:none;font-family:var(--display);font-size:1.5rem;letter-spacing:-.02em;font-weight:600}
+.contact-list small{display:block;font-family:var(--body);font-size:.9rem;font-weight:400;color:var(--muted);letter-spacing:0}
+form{background:var(--mint);border-radius:32px;padding:40px;display:grid;gap:18px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+label{font-size:.9rem;font-weight:600;display:grid;gap:8px}
+input,select,textarea{font:inherit;font-weight:400;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--green);border-color:transparent}
+textarea{min-height:130px;resize:vertical}
+form .btn{justify-self:start}
+.form-note{font-size:.9rem;color:var(--muted)}
+
+/* ---------- FOOTER ---------- */
+footer{background:#00341a;color:rgba(255,255,255,.75);padding:80px 0 32px;overflow:hidden}
+.foot{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.foot h4{font-family:var(--body);color:#fff;font-size:1rem;font-weight:600;margin-bottom:14px}
+.foot ul{list-style:none;display:grid;gap:10px}
+.foot a{text-decoration:none}
+.foot a:hover{color:var(--lime)}
+.socials{display:flex;gap:10px;margin-top:20px}
+.socials a{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;transition:background .2s}
+.socials a:hover{background:var(--lime)}
+.socials svg{width:18px;height:18px;fill:#fff}
+.socials a:hover svg{fill:var(--forest)}
+.bigmark{margin:80px 0 28px}
+.bigmark img{width:100%;height:auto;opacity:.95}
+.legal{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.88rem;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
+
+/* ---------- OUTREACHES PAGE ---------- */
+#outreaches-page{display:none}
+body.view-outreaches #home{display:none}
+body.view-outreaches #outreaches-page{display:block}
+.page-head{padding:170px 0 64px}
+.page-head h1{font-size:clamp(3rem,7vw,6rem);letter-spacing:-.05em;line-height:.95;max-width:12ch}
+.page-head .lead{margin-top:24px}
+.o-list{display:grid;gap:64px;padding-bottom:96px}
+.o-card{display:grid;gap:40px}
+.o-photos{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;height:440px}
+.o-photos img{width:100%;height:100%;min-height:0;object-fit:cover;border-radius:24px;cursor:zoom-in}
+.o-body{display:grid;grid-template-columns:1.2fr .8fr;gap:64px}
+.o-label{display:flex;gap:14px;align-items:center;margin-bottom:14px;font-size:.95rem;color:var(--muted)}
+.o-label b{background:var(--lime);color:var(--forest);padding:5px 14px;border-radius:999px;font-weight:600}
+.o-body h2{font-size:clamp(2rem,4vw,3.2rem);margin-bottom:18px}
+.o-body ul{list-style:none;margin-top:24px;display:grid;gap:10px}
+.o-body li{padding-left:18px;position:relative;color:var(--muted)}
+.o-body li:before{content:"";position:absolute;left:0;top:.65em;width:7px;height:7px;border-radius:50%;background:var(--green)}
+.o-side{display:grid;gap:18px;align-content:start}
+.o-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.o-stats div{background:var(--mint);border-radius:20px;padding:22px}
+.o-stats b{display:block;font-family:var(--display);font-size:2.8rem;letter-spacing:-.04em;line-height:1;color:var(--forest)}
+.o-stats span{color:var(--muted);font-size:.92rem}
+.o-meta{display:grid;gap:10px;font-size:.96rem}
+.o-meta div{display:grid;grid-template-columns:110px 1fr;gap:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.o-meta dt{color:var(--muted)}
+.o-cta{background:var(--forest);color:#fff;border-radius:32px;padding:56px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:120px}
+.o-cta h3{font-size:2.2rem;letter-spacing:-.04em}
+.o-cta p{color:rgba(255,255,255,.75);margin-top:8px}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:1020px){
+  section{padding:88px 0}
+  .links{position:fixed;top:80px;left:16px;right:16px;flex-direction:column;border-radius:24px;padding:12px;display:none}
+  .links.open{display:flex}
+  .links a{padding:14px 16px;font-size:1.05rem}
+  .menu-btn{display:grid}
+  .nav-cta{display:none}
+  .gap-head,.about-grid,.voice-wrap,.involved-grid,.supporters,.contact-grid,.o-body{grid-template-columns:1fr;gap:40px}
+  .gap-body{grid-template-columns:1fr 1fr}
+  .gap-photo{grid-row:auto;grid-column:1 / 3;aspect-ratio:16/10}
+  .figures{grid-column:1 / 3}
+  .panels{flex-direction:column;height:auto}
+  .panel,.panel.open{flex:none}
+  .panel .vt{display:none}
+  .panel .inner{position:relative;opacity:1;visibility:visible;grid-template-columns:1fr;padding:28px}
+  .panel .ph{height:240px}
+  .impact-row{grid-template-columns:repeat(2,1fr)}
+  .impact-row h2{grid-column:1 / 3}
+  .team-grid{grid-template-columns:repeat(2,1fr)}
+  .foot{grid-template-columns:1fr 1fr}
+  .hero-grid{grid-template-columns:1fr}
+  .hero-photo{max-width:460px;margin:20px auto 30px;width:calc(100% - 40px)}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding:0 20px}
+  .c1,.c4{left:-8px}.c2,.c3{right:-8px}.chip{font-size:.8rem;padding:8px 12px}
+  .hero{padding-top:120px}
+  .gap-body,.figures,.row,.team-grid,.o-stats,.foot{grid-template-columns:1fr}
+  .gap-photo,.figures{grid-column:auto}
+  .strip figure{height:340px}
+  .o-photos{grid-template-columns:1fr;height:auto}
+  .o-photos img{height:240px}
+  .programs-head,.gallery-head{flex-direction:column;align-items:flex-start}
+  form{padding:26px}
+  .o-cta{padding:32px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="#top" class="logo-pill" aria-label="Career Flow home"><img src="assets/logo-light.png" alt="Career Flow"></a>
+    <ul class="links" id="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#programs">Programmes</a></li>
+      <li><a href="#outreaches" data-nav="outreaches">Outreaches</a></li>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="#involved" class="btn btn-lime nav-cta">Get involved</a>
+    <button class="menu-btn" aria-label="Open menu" aria-expanded="false" id="menu-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="home">
+<span id="top"></span>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <!-- Decorative rays echoing the Career Flow mark -->
+  <svg class="rays" viewBox="0 0 200 200" aria-hidden="true">
+    <g fill="#e6ff79">
+      <path d="M100 100 L60 8 A100 100 0 0 1 112 1 Z"/>
+      <path d="M100 100 L124 3 A100 100 0 0 1 160 20 Z"/>
+      <path d="M100 100 L170 30 A100 100 0 0 1 188 56 Z"/>
+      <path d="M100 100 L194 70 A100 100 0 0 1 199 104 Z"/>
+      <path d="M100 100 L198 118 A100 100 0 0 1 186 150 Z"/>
+      <path d="M100 100 L42 18 A100 100 0 0 0 100 200 A100 100 0 0 0 130 195 Z"/>
+    </g>
+  </svg>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="hero-eyebrow"><i class="spark">✦</i> Career Flow Nigeria</span>
+      <h1 class="hero-h1"><span class="ln"><span>Clarity for Careers.</span></span><span class="ln"><span>Confidence for the</span></span><span class="future"><span class="fw">Future!</span></span></h1>
+      <p class="hero-sub">We help young Nigerians make informed education and career decisions through career guidance, mentorship, professional exposure and practical skills development.</p>
+      <div class="ctas hero-ctas">
+        <a href="#involved" class="btn btn-lime pulse">Get involved</a>
+        <a href="#outreaches" class="btn btn-line on-dark">Explore our outreaches</a>
+      </div>
+    </div>
+    <div class="hero-photo"><div class="blob b1"></div><div class="blob b2"></div><div class="ring"></div>
+      <div class="shadow"></div>
+      <div class="frame"><div class="slides" id="slides"></div></div><div class="dots" id="dots" aria-label="Choose slide"></div>
+      <div class="chip c1"><span>🧭</span>Career guidance</div>
+      <div class="chip c2"><span>🤝</span>Mentorship</div>
+      <div class="chip c3"><span>🏢</span>Industry exposure</div>
+      <div class="chip c4"><span>🚀</span>Career readiness</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= THE GUIDANCE GAP ================= -->
+<section class="gap">
+  <div class="wrap">
+    <div class="gap-head">
+      <h2>What do you want to study?</h2>
+      <p class="lead">Young people face this question earlier than most of us think, and too often they answer it with whatever their parents said, whatever their friends picked or whatever their scores allow.</p>
+    </div>
+    <div class="gap-body">
+      <div class="stage-note">
+        <h3>Junior secondary</h3>
+        <p>At the end of JSS3, students choose a department (Science, Arts or Commercial) for senior secondary. That one choice shapes the subjects they take and the courses open to them later.</p>
+      </div>
+      <div class="stage-note">
+        <h3>Senior secondary</h3>
+        <p>From SS1 to SS3, students choose the course they'll apply for, the subjects they'll write in JAMB and WAEC, and the path they'll follow after school.</p>
+      </div>
+      <div class="gap-photo"><img src="assets/photos/gap-art-class.jpg" alt="A Career Flow facilitator talking with students during a session" loading="lazy"></div>
+      <!-- TODO: add a source for each figure before going live, or remove them -->
+      <div class="figures">
+        <div><b>65%</b><span>of students choose university courses without fully understanding them</span></div>
+        <div><b>3 in 5</b><span>graduates end up working in fields unrelated to their degree</span></div>
+        <div><b>Under 10%</b><span>of Nigerian students have access to a career counsellor</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROGRAMMES ================= -->
+<section class="programs" id="programs">
+  <div class="wrap">
+    <div class="programs-head">
+      <h2>Three programmes, one journey</h2>
+      <p>From the JSS3 department choice to a first job interview, we meet students at each decision point.</p>
+    </div>
+    <div class="panels" id="panels">
+      <article class="panel p1 open" tabindex="0" aria-expanded="true">
+        <span class="vt">Discovery</span>
+        <div class="inner">
+          <div>
+            <div class="who">For JSS3 to SS3 students</div>
+            <h3>Career Discovery</h3>
+            <p>Helping JSS3 students choose the right department for senior secondary, and helping SS1 to SS3 students understand their options and map university pathways based on their strengths and interests.</p>
+            <ul><li>Career assessments</li><li>Department and subject choice guidance</li><li>University pathway mapping</li><li>Strength discovery workshops</li></ul>
+          </div>
+          <div class="ph"><img src="assets/photos/p1.jpg" alt="A facilitator leading a Career Discovery session" loading="lazy"></div>
+        </div>
+      </article>
+      <article class="panel p2" tabindex="0" aria-expanded="false">
+        <span class="vt">Exposure</span>
+        <div class="inner">
+          <div>
+            <div class="who">For secondary school students and school leavers</div>
+            <h3>Career Exposure Series</h3>
+            <p>Connecting students with professionals through industry talks, mentorship sessions and career storytelling, so they can see the full range of paths open to them.</p>
+            <ul><li>Industry professional talks</li><li>Mentorship sessions</li><li>Career storytelling panels</li><li>Workplace visits</li></ul>
+          </div>
+          <div class="ph"><img src="assets/photos/exposure-tech-class.jpg" alt="A professional speaking to students about his career" loading="lazy"></div>
+        </div>
+      </article>
+      <article class="panel p3" tabindex="0" aria-expanded="false">
+        <span class="vt">Readiness</span>
+        <div class="inner">
+          <div>
+            <div class="who">For undergraduates and young graduates</div>
+            <h3>Career Readiness</h3>
+            <p>Preparing university students and graduates for the workplace with practical skills in CV writing, interview preparation and professional networking.</p>
+            <ul><li>CV development</li><li>Interview preparation</li><li>LinkedIn optimisation</li><li>Workplace skills training</li></ul>
+          </div>
+          <div class="ph"><img src="assets/photos/p3.jpg" alt="A facilitator teaching a group of young people" loading="lazy"></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo"><img src="assets/photos/about-team-coronation.jpg" alt="The Career Flow team with Coronation Group at the outreach" loading="lazy"></div>
+    <div>
+      <h2>A nonprofit built for young people at a crossroads</h2>
+      <p class="lead">Career Flow Guidance Counselling and Skills Development Initiative is a registered, volunteer-led nonprofit. We work with secondary school students, school leavers and young graduates so they can choose a path on purpose and walk into it prepared.</p>
+      <div class="focus"><span>Career guidance</span><span>Mentorship</span><span>Professional exposure</span><span>Practical skills</span></div>
+      <p class="sdg">Our work contributes to SDG 4 (Quality Education) and SDG 8 (Decent Work and Economic Growth).</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OUTREACH FEATURE ================= -->
+<section class="feature" id="outreach">
+  <img src="assets/photos/feature.jpg" alt="Students listening to a speaker at the Career Flow outreach" loading="lazy">
+  <div class="wrap">
+    <small>Latest outreach</small>
+    <h2>From an idea to a room full of curious minds</h2>
+    <p>Students explored career options, heard from working professionals and got honest answers to the questions they usually carry alone.</p>
+    <div class="ctas">
+      <a href="#outreaches" class="btn btn-lime">See all outreaches</a>
+    </div>
+  </div>
+</section>
+
+<section class="impact" id="impact">
+  <div class="wrap impact-row">
+    <h2>Our impact so far</h2>
+    <div class="num"><b data-count="118">0</b><span>Students reached</span></div>
+    <div class="num"><b data-count="10">0</b><span>Teachers engaged</span></div>
+    <div class="num"><b data-count="1">0</b><span>Outreach delivered</span></div>
+    <div class="num"><b data-count="2">0</b><span>Sponsors and partners</span></div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap gallery-head">
+    <h2>Moments from our outreaches</h2>
+    <div class="g-ctrl">
+      <button id="g-prev" aria-label="Scroll photos back">&#8592;</button>
+      <button id="g-next" aria-label="Scroll photos forward">&#8594;</button>
+    </div>
+  </div>
+  <div class="strip" id="strip"></div>
+</section>
+<div class="lightbox" id="lightbox" role="dialog" aria-label="Photo viewer">
+  <button class="close" aria-label="Close">&#215;</button>
+  <button class="prev" aria-label="Previous">&#8249;</button>
+  <img alt="">
+  <button class="next" aria-label="Next">&#8250;</button>
+</div>
+
+<!-- ================= VOICES ================= -->
+<section class="voices">
+  <div class="wrap voice-wrap">
+    <div>
+      <h2>Why we do this</h2>
+      <div class="voice-names" id="voice-names"></div>
+    </div>
+    <blockquote id="voice-quote"></blockquote>
+  </div>
+</section>
+
+<!-- ================= TEAM ================= -->
+<section class="team" id="team">
+  <div class="wrap">
+    <h2>The people making it happen</h2>
+    <div class="team-grid" id="team-grid"></div>
+  </div>
+</section>
+
+<!-- ================= GET INVOLVED ================= -->
+<section class="involved" id="involved">
+  <div class="wrap">
+    <div class="involved-grid">
+      <div>
+        <h2>Help a young person choose on purpose</h2>
+        <p class="lead">Our next outreach is already in the works. There's a place for you whether you're a student, a professional, a school or an organisation.</p>
+      </div>
+      <ul class="ways" id="ways"></ul>
+    </div>
+    <div class="supporters">
+      <div>
+        <h3>Our past sponsors and partners</h3>
+        <p>Want to see your organisation here? Sponsor an outreach or partner with us to reach more students.</p>
+      </div>
+      <div>
+        <div class="sponsor-names">
+          <div><small>Headline sponsor</small><b>Coronation Group</b></div>
+          <div><small>Media partner</small><b>Magical Storyline</b></div>
+        </div>
+        <div class="ctas">
+          <a href="#contact" class="btn btn-lime" data-topic="Become a sponsor">Sponsor us</a>
+          <a href="#contact" class="btn btn-line on-dark" data-topic="Partner with us">Partner with us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <h2>Let's talk</h2>
+      <p class="lead" style="margin-top:20px">Tell us how you'd like to be involved and we'll get back to you.</p>
+      <div class="contact-list">
+        <a href="mailto:careerflowngo@gmail.com"><small>Email</small>careerflowngo@gmail.com</a>
+        <a href="tel:+2349048656649"><small>Phone</small>0904 865 6649</a>
+        <a href="https://www.instagram.com/careerflow_" target="_blank" rel="noopener"><small>Instagram</small>@careerflow_</a>
+      </div>
+    </div>
+    <!-- Opens the visitor's email app with the message filled in. Swap for Formspree or Google Forms to collect entries. -->
+    <form id="contact-form">
+      <div class="row">
+        <label>Full name<input name="name" required autocomplete="name"></label>
+        <label>Email<input type="email" name="email" required autocomplete="email"></label>
+      </div>
+      <div class="row">
+        <label>Phone<input name="phone" autocomplete="tel"></label>
+        <label>I'd like to
+          <select name="topic" id="topic"></select>
+        </label>
+      </div>
+      <label>Message<textarea name="message" placeholder="Tell us a little more"></textarea></label>
+      <button class="btn btn-dark" type="submit">Send message</button>
+      <p class="form-note">This opens your email app with your message ready to send.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- ================= OUTREACHES PAGE ================= -->
+<main id="outreaches-page">
+  <div class="wrap">
+    <div class="page-head">
+      <h1>Our outreaches</h1>
+      <p class="lead">Each outreach brings career guidance, working professionals and honest conversations to students. Here's a record of every one.</p>
+    </div>
+    <div class="o-list" id="o-list"></div>
+    <div class="o-cta">
+      <div><h3>Want us at your school or organisation?</h3><p>We'd love to plan the next outreach with you.</p></div>
+      <a href="#contact" class="btn btn-lime" data-topic="Bring Career Flow to my school or organisation">Get in touch</a>
+    </div>
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <p>Clarity for careers. Confidence for the future.</p>
+        <div class="socials">
+          <!-- TODO: replace # with the Facebook and LinkedIn page URLs -->
+          <a href="#" aria-label="Facebook: Career Flow NG"><svg viewBox="0 0 24 24"><path d="M14 9h3V5h-3c-2.8 0-4 1.7-4 4.3V11H7v4h3v9h4v-9h3l1-4h-4V9.5c0-.4.3-.5 1-.5z"/></svg></a>
+          <a href="https://www.instagram.com/careerflow_" target="_blank" rel="noopener" aria-label="Instagram: careerflow_"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM12 2.2c2.7 0 3 0 4 .1 2.7.1 4 1.4 4.1 4.1.1 1 .1 1.4.1 4s0 3-.1 4c-.1 2.7-1.4 4-4.1 4.1-1 .1-1.4.1-4 .1s-3 0-4-.1c-2.7-.1-4-1.4-4.1-4.1-.1-1-.1-1.4-.1-4s0-3 .1-4C4 3.7 5.3 2.4 8 2.3c1 0 1.3-.1 4-.1z"/></svg></a>
+          <a href="#" aria-label="LinkedIn: Career Flow"><svg viewBox="0 0 24 24"><path d="M4.5 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM3 8.5h3V21H3zM9 8.5h2.9v1.7h.1c.4-.8 1.4-1.7 3-1.7 3.1 0 3.7 2.1 3.7 4.7V21h-3v-6.8c0-1.6 0-3.7-2.2-3.7s-2.6 1.7-2.6 3.6V21H9z"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Programmes</h4><ul><li><a href="#programs">Career Discovery</a></li><li><a href="#programs">Career Exposure</a></li><li><a href="#programs">Career Readiness</a></li></ul></div>
+      <div><h4>Get involved</h4><ul><li><a href="#involved">Join as a student</a></li><li><a href="#involved">Become a mentor</a></li><li><a href="#involved">Volunteer</a></li><li><a href="#involved">Become a sponsor</a></li></ul></div>
+      <div><h4>About</h4><ul><li><a href="#about">Who we are</a></li><li><a href="#outreaches">Outreaches</a></li><li><a href="#team">Team</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    </div>
+    <div class="bigmark"><img src="assets/logo-light.png" alt="" aria-hidden="true"></div>
+    <div class="legal"><span>&#169; <span id="year">2026</span> Career Flow Guidance Counselling and Skills Development Initiative. Registered nonprofit.</span><span>Lagos, Nigeria</span></div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   CONTENT
+   Photos live in assets/photos/. To swap one, put a new file
+   in that folder and change the path here.
+   ============================================================ */
+const SLIDES = [
+  ["assets/photos/slide-coronation-session.jpg","A speaker engaging students at our first outreach"],
+  ["assets/photos/slide-dr-sharon-session.jpg","Dr Sharon's session on wellbeing and big decisions"],
+  ["assets/photos/slide-students-room.jpg","A full room of students ready to learn"],
+  ["assets/photos/slide-hand-raised.jpg","Students asking the questions they usually carry alone"],
+  ["assets/photos/slide-class-closeup.jpg","Students reading Career Flow materials"],
+  ["assets/photos/slide-students-listening.jpg","Students listening and asking questions"]
+];
+
+const GALLERY = [
+  ["assets/photos/g-hand-raised.jpg","l","A student raises her hand to ask a question"],
+  ["assets/photos/g-bulletin-student.jpg","p","A student holding the Career Flow booklet"],
+  ["assets/photos/g-art-class-students.jpg","l","Students listening during a small-group session"],
+  ["assets/photos/g-guest-speaker.jpg","l","A guest speaker addressing students"],
+  ["assets/photos/g-student-props.jpg","p","A student posing with the Career Flow photo frame"],
+  ["assets/photos/g-full-room.jpg","l","A full room of students"],
+  ["assets/photos/g-student-souvenir.jpg","l","Students showing their souvenirs"],
+  ["assets/photos/g-volunteers-team.jpg","p","Career Flow volunteers on the day"],
+  ["assets/photos/hero.jpg","l","Students seated for the session"],
+  ["assets/photos/g-sponsor-kits.jpg","l","Sponsor kits for students"],
+  ["assets/photos/g-volunteers-phones.jpg","l","Volunteers preparing materials"],
+  ["assets/photos/g-session.jpg","l","A facilitator leading a session"]
+];
+
+const VOICES = [
+  ["Sharon Jepson-Emmanuel","Mental Health & Psychosocial Support Lead","I see what happens when young people navigate mental health and career decisions alone. The pressure of figuring out who you are and what you want to become can be overwhelming. No young person should have to face that journey without support."],
+  ["Virtuous-Fanny Osu","Founder & Executive Director","I meet brilliant young Nigerians every day who had no idea their dream career even existed. By the time they discover these paths, many have already spent years studying something they were never passionate about. We exist to change that."],
+  ["Chisom Mbagwu","Co-founder & Programs Lead","The best products are built with intention, and the same is true for careers. Too many young people stumble into paths by accident. We help them approach their future with research, strategy and deliberate execution."]
+];
+
+const TEAM = [
+  ["Virtuous-Fanny Osu","Founder & Executive Director"],
+  ["Chisom Mbagwu","Co-founder & Programs Lead"],
+  ["Sharon Jepson-Emmanuel","Mental Health & Psychosocial Support Lead"],
+  ["Enang Mercy","Communications & Media Lead"],
+  ["Funmilayo Tumule","Programs & Operations Associate"],
+  ["Favour Nkanang","Research & Programme Support"],
+  ["Mary Oyebanji","Finance & Impact Analysis"],
+  ["Bassey Marvellous Oluwatobiloba","Graphic & Brand Designer"]
+];
+
+const WAYS = [
+  ["Join as a student","Get guidance, attend our sessions and meet professionals in fields you're curious about."],
+  ["Become a mentor","Share your career story, give a talk or mentor a student through a key decision."],
+  ["Volunteer","Support programmes, research, content, design, media or logistics."],
+  ["Bring us to your school or organisation","Host a Career Flow outreach for your students, members or young people."],
+  ["Become a sponsor","Fund an outreach, provide materials or media support, and help us reach more students."],
+  ["Donate","Every gift helps us reach more students with materials, venues and transport."]
+];
+
+/* OUTREACHES: add a new object at the TOP of this list for each new outreach. */
+const OUTREACHES = [
+  {
+    label: "First outreach",
+    date: "26 August 2026",
+    institution: "Platform Insight Institute",
+    programme: "Student Career Outreach",
+    venue: "Platform Insight Institute (tutorial centre)",
+    audience: "Students aged 13 to 21: SS1 to SS3 and school leavers",
+    summary: "Our first outreach. Students explored career options, heard from working professionals and got honest answers to the questions they usually carry alone.",
+    activities: [
+      "Career clarity sessions on career options, subject choices and what different paths involve",
+      "Talks from professionals who shared their own career journeys",
+      "A session on wellbeing and handling the pressure of big decisions",
+      "Career Flow resources and sponsor gift packs for students"
+    ],
+    stats: [["118","students reached"],["10","teachers engaged"]],
+    sponsors: "Coronation Group (headline sponsor), Magical Storyline (media partner)",
+    photos: ["assets/photos/feature.jpg","assets/photos/g-hand-raised.jpg","assets/photos/slide-class-closeup.jpg"]
+  }
+];
+
+/* ============================================================
+   BEHAVIOUR
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const initials = n => n.split(/[\s-]+/).map(w => w[0]).slice(0,2).join("");
+const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+/* Hero slideshow */
+const slidesEl = $("#slides"), dotsEl = $("#dots");
+let si = 0, sTimer;
+SLIDES.forEach(([src, alt], i) => {
+  const im = document.createElement("img"); im.src = src; im.alt = alt; if(i > 1) im.loading = "lazy"; slidesEl.appendChild(im);
+  const d = document.createElement("button"); d.setAttribute("aria-label", "Photo " + (i + 1)); d.onclick = () => { showSlide(i); restart(); }; dotsEl.appendChild(d);
+});
+function showSlide(i){
+  si = (i + SLIDES.length) % SLIDES.length;
+  slidesEl.querySelectorAll("img").forEach((im, k) => { im.classList.toggle("on", k === si); if(k === si){ im.style.animation = "none"; im.offsetHeight; im.style.animation = ""; } });
+  dotsEl.querySelectorAll("button").forEach((d, k) => d.classList.toggle("on", k === si));
+}
+function restart(){ clearInterval(sTimer); sTimer = setInterval(() => showSlide(si + 1), 4500); }
+showSlide(0); restart();
+const heroFrame = $(".hero-photo .frame");
+heroFrame.addEventListener("mouseenter", () => clearInterval(sTimer));
+heroFrame.addEventListener("mouseleave", restart);
+
+/* Programme panels */
+const panels = [...document.querySelectorAll(".panel")];
+function openPanel(p){ panels.forEach(x => { x.classList.toggle("open", x === p); x.setAttribute("aria-expanded", x === p); }); }
+panels.forEach(p => {
+  p.addEventListener("mouseenter", () => { if(matchMedia("(min-width:1021px)").matches) openPanel(p); });
+  p.addEventListener("click", () => openPanel(p));
+  p.addEventListener("keydown", e => { if(e.key === "Enter" || e.key === " "){ e.preventDefault(); openPanel(p); } });
+});
+
+/* Gallery strip */
+const strip = $("#strip");
+GALLERY.forEach(([src, shape, alt], i) => {
+  const f = document.createElement("figure"); f.className = shape;
+  f.innerHTML = `<img src="${src}" alt="${alt}" loading="lazy">`;
+  f.onclick = () => openLb(i);
+  strip.appendChild(f);
+});
+const step = () => strip.clientWidth * 0.7;
+$("#g-prev").onclick = () => strip.scrollBy({left: -step(), behavior: "smooth"});
+$("#g-next").onclick = () => strip.scrollBy({left: step(), behavior: "smooth"});
+
+/* Lightbox */
+const lb = $("#lightbox"), lbImg = lb.querySelector("img"); let lbList = GALLERY.map(g => g[0]), cur = 0;
+function openLb(i, list){ if(list) lbList = list; else lbList = GALLERY.map(g => g[0]); cur = i; lbImg.src = lbList[cur]; lb.classList.add("open"); }
+function lbStep(d){ cur = (cur + d + lbList.length) % lbList.length; lbImg.src = lbList[cur]; }
+lb.querySelector(".close").onclick = () => lb.classList.remove("open");
+lb.querySelector(".prev").onclick = e => { e.stopPropagation(); lbStep(-1); };
+lb.querySelector(".next").onclick = e => { e.stopPropagation(); lbStep(1); };
+lb.onclick = e => { if(e.target === lb) lb.classList.remove("open"); };
+document.addEventListener("keydown", e => {
+  if(!lb.classList.contains("open")) return;
+  if(e.key === "Escape") lb.classList.remove("open");
+  if(e.key === "ArrowRight") lbStep(1);
+  if(e.key === "ArrowLeft") lbStep(-1);
+});
+
+/* Voices */
+const vn = $("#voice-names"), vq = $("#voice-quote");
+VOICES.forEach(([n, r], i) => {
+  const b = document.createElement("button");
+  b.innerHTML = `<div class="avatar">${initials(n)}</div><div><b>${n}</b><small>${r}</small></div>`;
+  b.onclick = () => showVoice(i);
+  vn.appendChild(b);
+});
+function showVoice(i){
+  vn.querySelectorAll("button").forEach((b, k) => b.classList.toggle("on", k === i));
+  vq.classList.add("swap");
+  setTimeout(() => { vq.textContent = "“" + VOICES[i][2] + "”"; vq.classList.remove("swap"); }, 250);
+}
+showVoice(1);
+
+/* Team */
+$("#team-grid").innerHTML = TEAM.map(([n, r]) => `<div class="member"><div class="avatar">${initials(n)}</div><div><b>${n}</b><span>${r}</span></div></div>`).join("");
+
+/* Ways to get involved + form topics */
+$("#ways").innerHTML = WAYS.map(([t, d]) => `<li><a href="#contact" data-topic="${t}"><h3>${t}</h3><p>${d}</p>${arrow}</a></li>`).join("");
+$("#topic").innerHTML = [...WAYS.map(w => w[0]), "Partner with us", "Something else"].map(t => `<option>${t}</option>`).join("");
+document.addEventListener("click", e => {
+  const t = e.target.closest("[data-topic]");
+  if(t) $("#topic").value = t.dataset.topic;
+});
+
+/* Contact form */
+$("#contact-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const d = new FormData(e.target);
+  const body = `Name: ${d.get("name")}\nEmail: ${d.get("email")}\nPhone: ${d.get("phone")}\n\n${d.get("message")}`;
+  window.location.href = `mailto:careerflowngo@gmail.com?subject=${encodeURIComponent("Website: " + d.get("topic"))}&body=${encodeURIComponent(body)}`;
+});
+
+/* Outreaches page */
+$("#o-list").innerHTML = OUTREACHES.map((o, oi) => `
+  <article class="o-card">
+    <div class="o-photos">${o.photos.map((p, pi) => `<img src="${p}" alt="${o.institution} outreach" loading="lazy" data-o="${oi}" data-p="${pi}">`).join("")}</div>
+    <div class="o-body">
+      <div>
+        <div class="o-label"><b>${o.label}</b><span>Held on ${o.date}</span></div>
+        <h2>${o.institution}</h2>
+        <p>${o.summary}</p>
+        <ul>${o.activities.map(a => `<li>${a}</li>`).join("")}</ul>
+      </div>
+      <div class="o-side">
+        <div class="o-stats">${o.stats.map(([n, l]) => `<div><b>${n}</b><span>${l}</span></div>`).join("")}</div>
+        <dl class="o-meta">
+          <div><dt>Programme</dt><dd>${o.programme}</dd></div>
+          <div><dt>Venue</dt><dd>${o.venue}</dd></div>
+          <div><dt>Audience</dt><dd>${o.audience}</dd></div>
+          <div><dt>Sponsors</dt><dd>${o.sponsors}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </article>`).join("");
+document.querySelectorAll(".o-photos img").forEach(im => im.onclick = () => openLb(+im.dataset.p, OUTREACHES[+im.dataset.o].photos));
+
+/* Count-up for impact figures */
+function countUp(el){
+  const end = +el.dataset.count, t0 = performance.now(), dur = 1600;
+  const tick = now => { const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 4);
+    el.textContent = Math.round(end * e); if(p < 1) requestAnimationFrame(tick); };
+  requestAnimationFrame(tick);
+}
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if(!en.isIntersecting) return;
+  if(en.target.dataset.count) countUp(en.target); else en.target.classList.add("in");
+  io.unobserve(en.target);
+}), {threshold: .35});
+document.querySelectorAll("[data-count], .feature").forEach(el => io.observe(el));
+
+/* Mobile menu */
+const menu = $("#menu"), mbtn = $("#menu-btn");
+mbtn.onclick = () => { const o = menu.classList.toggle("open"); mbtn.setAttribute("aria-expanded", o); };
+menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { menu.classList.remove("open"); mbtn.setAttribute("aria-expanded", false); }));
+
+/* Router: #outreaches shows the Outreaches page; other links show home */
+function route(){
+  const h = location.hash.slice(1);
+  const onO = h === "outreaches";
+  document.body.classList.toggle("view-outreaches", onO);
+  document.querySelectorAll(".links a").forEach(a => a.classList.toggle("active", onO && a.dataset.nav === "outreaches"));
+  if(onO) window.scrollTo(0, 0);
+  else if(h){ const el = document.getElementById(h); if(el) setTimeout(() => el.scrollIntoView(), 0); }
+}
+window.addEventListener("hashchange", route);
+route();
+$("#year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
