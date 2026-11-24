@@ -1,4 +1,4 @@
-# Career Flow website
+# Career Flow Website
 
 One page: `index.html`, plus the logo files in `assets/`.
 
